@@ -1,29 +1,6 @@
-/*
-  Serial Event example
-
-  When new serial data arrives, this sketch adds it to a String.
-  When a newline is received, the loop prints the string and
-  clears it.
-
-  A good test for this is to try it with a GPS receiver
-  that sends out NMEA 0183 sentences.
-
-  Created 9 May 2011
-  by Tom Igoe
-
-  This example code is in the public domain.
-
-  http://www.arduino.cc/en/Tutorial/SerialEvent
-
-
-*/
 
 #include <SPI.h>
 #include <SoftwareSerial.h>
-
-String inputString;        // a string to hold incoming data
-boolean stringComplete = false;  // whether the string is complete
-char inputChar[10];
 
 SPISettings settingsA(200000, MSBFIRST, SPI_MODE3);
 
@@ -73,7 +50,6 @@ void setup() {
 
 
   digitalWrite(enablePin, LOW);
-  //  inputString.reserve(20);
   i = 0;
   mySerial.begin(9600);
   writeSpi(BLANK, BLANK);
